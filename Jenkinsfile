@@ -9,7 +9,8 @@ node ('master')
     stage 'Build'
         bat "\"${tool 'msbuild'}\" SeleniumNUnitParam.sln /p:Configuration=debug /p:platform=\"Any CPU\" /p:ProductVersion=1.0.0.${BUILD_NUMBER}"
     stage 'Test'
-        bat '"C:/Tools/Nunit/nunit3-console.exe" SeleniumNUnitParam\bin\Debug\SeleniumNUnitParam.dll'
+        bat '"C:/Tools/Nunit/nunit3-console.exe" "C:\Program Files (x86)\Jenkins\workspace\TestPipeline_master-4JM27EXS2RGGKJ6BGNZQZX3EOXE2VOHVSFCSQFCNP2U7GIQZ6IFQ\SeleniumNUnitParam\bin\Debug\SeleniumNUnitParam.dll"'
+
 '
     
 }
