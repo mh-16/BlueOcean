@@ -10,5 +10,9 @@ node ('master')
         bat "\"${tool 'msbuild'}\" SeleniumNUnitParam.sln /p:Configuration=debug /p:platform=\"Any CPU\" /p:ProductVersion=1.0.0.${BUILD_NUMBER}"
     stage 'Test'
         bat 'C:/Tools/Nunit/nunit3-console.exe SeleniumNUnitParam\\bin\\Debug\\SeleniumNUnitParam.dll /xml=result.xml'
+		
+	stage("PublishTestReport")
+		nunit testResultsPattern: 'Result.xml'
+     
     
 }
